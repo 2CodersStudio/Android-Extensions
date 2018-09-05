@@ -13,18 +13,18 @@ import android.widget.TextView
  * Created by alvaro on 15/2/18.
  */
 
-fun View.fadeIn() {
+fun View.fadeIn(duration: Long = 1000) {
     val fadeIn = AlphaAnimation(0f, 1f)
     fadeIn.interpolator = DecelerateInterpolator()
-    fadeIn.duration = 1000
+    fadeIn.duration = duration
     this.startAnimation(fadeIn)
     this.visibility = View.VISIBLE
 }
 
-fun View.fadeOut(finalViewState: Int = View.INVISIBLE) {
+fun View.fadeOut(finalViewState: Int = View.INVISIBLE, duration: Long = 1000) {
     val fadeIn = AlphaAnimation(1f, 0f)
     fadeIn.interpolator = DecelerateInterpolator()
-    fadeIn.duration = 700
+    fadeIn.duration = duration
     this.startAnimation(fadeIn)
     this.visibility = finalViewState
 }
@@ -43,17 +43,17 @@ fun View.endBounce() {
 }
 
 
-fun TextView.replaceTextWithFade(newText: String) {
+fun TextView.replaceTextWithFade(newText: String,duration : Long = 1000) {
     val fadeOut = AlphaAnimation(1f, 0f)
     fadeOut.interpolator = DecelerateInterpolator()
-    fadeOut.duration = 1000
+    fadeOut.duration = duration
     this.startAnimation(fadeOut)
     this.visibility = View.INVISIBLE
     this.text = newText
 
     val fadeIn = AlphaAnimation(0f, 1f)
     fadeIn.interpolator = DecelerateInterpolator()
-    fadeIn.duration = 1000
+    fadeIn.duration = duration
     this.startAnimation(fadeIn)
     this.visibility = View.VISIBLE
 }

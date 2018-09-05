@@ -18,19 +18,13 @@ inline fun FragmentManager.inTransaction(func: FragmentTransaction.() -> Unit) {
     fragmentTransaction.commit()
 }
 
-fun AppCompatActivity.addFragment(fragment: Fragment, containerId: Int): Fragment {
+fun AppCompatActivity.addFragment(fragment: Fragment, containerId: Int) {
     supportFragmentManager.inTransaction { add(containerId, fragment) }
-    return fragment
 }
 
 fun AppCompatActivity.replaceFragment(fragment: Fragment, containerId: Int) {
     supportFragmentManager.inTransaction { replace(containerId, fragment) }
 }
-
-fun AppCompatActivity.replaceFragmentWithSlideAnim(fragment: Fragment, containerId: Int) {
-    supportFragmentManager.inTransaction { replace(containerId, fragment) }
-}
-
 
 fun Fragment.withParcelable(item: Any, key : String): Fragment {
     if (item is Parcelable) {
