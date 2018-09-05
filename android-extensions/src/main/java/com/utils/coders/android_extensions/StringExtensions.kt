@@ -1,5 +1,6 @@
 package com.utils.coders.android_extensions
 
+import android.graphics.Color
 import android.util.Base64
 import android.util.Patterns
 import java.text.SimpleDateFormat
@@ -43,6 +44,19 @@ fun String.isValidUsername(type : UsernameType = UsernameType.ALPHANUMERIC): Boo
         }
     }
     return this.matches(reg.toRegex())
+}
+fun String.getColorWithReducedBrightness(brightPercentage : Float = 0.1f): Int{
+    var colorToUse = this
+    val parsedColor = Color.parseColor(colorToUse)
+    val r = parsedColor shr 16 and 0xFF
+    val g = parsedColor shr 8 and 0xFF
+    val b = parsedColor shr 0 and 0xFF
+    val hsvArray : FloatArray = floatArrayOf(0f,0f,0f)
+    Color.RGBToHSV(r,g,b,hsvArray)
+    val bright = hsvArray[2]
+    hsvArray[2] = hsvArray[2] -  (bright * brightPercentage)
+
+    return  Color.HSVToColor(hsvArray)
 }
 
 

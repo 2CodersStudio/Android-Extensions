@@ -28,6 +28,8 @@
 * [Fragment](#fragment-extensions)
 * [Image](#image-extensions)
 * [String](#string-extensions)
+* [View](#view-extensions)
+* [ViewGroup](#viewgroup-extensions)
 
 ## Animation extensions
 Using AppCompatActivity:
@@ -53,9 +55,17 @@ Using AppCompatActivity:
 - `Activity.scaleImageFromScrensize(image: ImageView, percentage: Float = 0.5f)` scales the desired imageView in a screen percentage, the default percentage is 50%
 - `getScreenHeight(): Int` returns the device screen height
 - `getScreenWidth(): Int` returns the device screen width
+
 ## String extensions
 - `isValidEmail(): Boolean` returns true or false depending if the value is an email, regex from http://emailregex.com/
 - `isValidPassword(): Boolean` returns true or false if the value is a correct password, containing at least 8 characters, and at least one number.
 - `encrypt(): String` returns the value encrypted by Base64
 - `decrypt(): String` returns the value decrypted by Base64
 - `isValidUsername(type : UsernameType = UsernameType.ALPHANUMERIC): Boolean`returns true if the user matches the pre-defined validations for the desired case, the case is defined by UsernameType enum, defining CHARACTER, ALPHANUMERIC and NUMERIC. The default value for username validation is ALPHANUMERIC
+- `getColorWithReducedBrightness(brightPercentage : Float = 0.1f): Int` returns the same color with less brightness. Brightness can be defined in the argument, that by default is 0.1 (10%)
+
+## View extensions
+- `rounded(rounded: Float = 14f, color: Int = Color.WHITE)` adds a rounded shape to any view with the desired color, the default color is white.
+## ViewGroup extensions
+- `getViewsByTag(tag: String): ArrayList<View>` returns a collection of all the viewGroup childs that has the desired tag.
+- `inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View` inflate a viewGroup with the desired layout.
