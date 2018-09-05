@@ -1,7 +1,7 @@
 # Android-Extensions
 
 [![Release](https://jitpack.io/v/2CodersStudio/Android-Extensions.svg)](https://jitpack.io/#2CodersStudio/Android-Extensions)
-
+[![GitHub version](https://badge.fury.io/gh/2CodersStudio%2FAndroid-Extensions.svg)](https://badge.fury.io/gh/2CodersStudio%2FAndroid-Extensions)
 ### Installation
 
 1. Add in your root build.gradle file:
@@ -19,7 +19,7 @@
 
 ```gradle
 	dependencies {
-	        implementation 'com.github.2CodersStudio:Android-Extensions:v0.1'
+	        implementation 'com.github.2CodersStudio:Android-Extensions:v0.9.1'
 	}
 ```
 
@@ -63,9 +63,3 @@ Using AppCompatActivity:
 - `decrypt(): String` returns the value decrypted by Base64
 - `isValidUsername(type : UsernameType = UsernameType.ALPHANUMERIC): Boolean`returns true if the user matches the pre-defined validations for the desired case, the case is defined by UsernameType enum, defining CHARACTER, ALPHANUMERIC and NUMERIC. The default value for username validation is ALPHANUMERIC
 - `getColorWithReducedBrightness(brightPercentage : Float = 0.1f): Int` returns the same color with less brightness. Brightness can be defined in the argument, that by default is 0.1 (10%)
-
-## View extensions
-- `rounded(rounded: Float = 14f, color: Int = Color.WHITE)` adds a rounded shape to any view with the desired color, the default color is white.
-## ViewGroup extensions
-- `getViewsByTag(tag: String): ArrayList<View>` returns a collection of all the viewGroup childs that has the desired tag.
-- `inflate(@LayoutRes layoutRes: Int, attachToRoot: Boolean = false): View` inflate a viewGroup with the desired layout.
