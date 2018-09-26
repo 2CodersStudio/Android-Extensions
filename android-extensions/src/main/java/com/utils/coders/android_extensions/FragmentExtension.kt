@@ -22,11 +22,16 @@ fun AppCompatActivity.addFragment(fragment: Fragment, containerId: Int) {
     supportFragmentManager.inTransaction { add(containerId, fragment) }
 }
 
-fun AppCompatActivity.replaceFragment(fragment: Fragment, containerId: Int) {
-    supportFragmentManager.inTransaction { replace(containerId, fragment) }
+fun AppCompatActivity.replaceFragment(fragment: Fragment, containerId: Int, backStack: Boolean = false) {
+    supportFragmentManager.inTransaction {
+        replace(containerId, fragment)
+        if (backStack) {
+            addToBackStack(fragment.javaClass.name)
+        }
+    }
 }
 
-fun Fragment.withParcelable(item: Any, key : String): Fragment {
+fun Fragment.withParcelable(item: Any, key: String): Fragment {
     if (item is Parcelable) {
         val args = Bundle()
         args.putParcelable(key, item)
